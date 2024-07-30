@@ -13,13 +13,13 @@ const app = express();
 
 (async ()=>{
     try {
-        await mongoose.connect(`${process.env.MONGO_URL}/${USE_NAME}`)
+        await mongoose.connect(`${process.env.MONGO_URL}/${USE_NAME}`);
         app.on('error', (err)=>{
             console.error("ERROR ",err);
             process.exit(1);
         });
-        app.listen(3000, function(){
-            console.log("MongoDB Connected Successfully!");
+        app.listen(process.env.PORT, function(){
+            console.log("MongoDB Connected Successfully! at ",process.env.PORT);
         })
     } catch (error) {
         console.log("Error: ", error);
