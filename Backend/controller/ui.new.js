@@ -1,1 +1,1 @@
-export default USE_NAME = "New Project"; 
+export const USE_NAME = "New Project"; 
