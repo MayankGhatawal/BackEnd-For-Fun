@@ -1,27 +1,42 @@
 import mongoose from "mongoose";
 
-const todo = mongoose.Schema({
-    username:{
+const videoSchema = new Schema({
+    title:{
         type: String,
         required: true,
-        minlength: 3,
-        maxlength: 20,
-        lowercase: true
+        minlength: 5,
+        maxlength: 100
     },
-    email:{
+    description:{
         type: String,
         required: true,
-        unique: true,
-        lowercase: true
+        minlength: 10,
+        maxlength: 500
     },
-    passwords: {
+    duration:{
+        type: Number,
+        required: true
+    },
+    views:{
+        type: Number,
+        default: 0
+    },
+    videoFile:{
         type: String,
-        required: true,
-        minlength: 6,
-        select: false,
-        unique: true
+        required: true
+    },
+    thumbnail:{
+        type: String,
+        required: true
+    },
+    owner:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
+    }],
+    isPublished:{
+        type: Boolean,
+        default: false
     }
-    
 },{timestamps: true});
 
-const TodoModel = mongoose.model("TodoModel", todo);
+export const Video = mongoose.model("Video", videoSchema);
