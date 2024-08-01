@@ -1,6 +1,21 @@
 import express from 'express';
+import { connectDB } from './db/connet.mongo';
 
 const app = express();
+
+
+
+connectDB()
+.then( function (db) {
+    console.log("connect");
+})
+.catch((error) => {
+    console.log("Database error: " + error);
+})
+
+
+
+
 
 app.use(function(req, res, next) {
     console.log('Ready to serve');
