@@ -25,4 +25,6 @@ const app = express();
         console.log("Error: ", error);
         process.exit(1);
     }
-})()
+})
+
+export { connectDB }
