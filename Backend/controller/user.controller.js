@@ -5,3 +5,6 @@ const userRegistration = asyncHandler(async (req, res) =>{
         message: "Completed registration"
     })
 })
+
+
+export { userRegistration }
